@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milly's Groceries | Fresh & Affordable</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .hero-bg {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1920x1080/?grocery');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-card {
+      transition: all 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-green-600 rounded-2xl flex items-center justify-center text-white text-3xl">
+          🛒
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-green-700">Milly's</h1>
+          <p class="text-sm text-gray-500 -mt-1">Groceries</p>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex items-center gap-8 text-gray-700 font-medium">
+        <a href="#" class="hover:text-green-600 transition-colors">Home</a>
+        <a href="#" class="hover:text-green-600 transition-colors">Shop</a>
+        <a href="#" class="hover:text-green-600 transition-colors">Categories</a>
+        <a href="#" class="hover:text-green-600 transition-colors">About</a>
+        <a href="#" class="hover:text-green-600 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition-colors">
+          <i class="fa-solid fa-magnifying-glass text-xl"></i>
+        </button>
+        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition-colors">
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+          <span class="absolute -top-1 -right-1 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+        </button>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-2xl font-medium transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-user"></i>
+          <span>Account</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-screen flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-xl">
+        <h2 class="text-6xl font-bold leading-tight mb-4">Fresh Groceries,<br>Right at Your Doorstep</h2>
+        <p class="text-xl mb-8 text-gray-100">Quality products from local farms to your kitchen. Fast delivery in Nairobi and beyond.</p>
+        <div class="flex gap-4">
+          <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" 
+                  class="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-3xl text-lg font-semibold transition-all">
+            Shop Now
+          </button>
+          <button class="border-2 border-white hover:bg-white hover:text-black px-8 py-4 rounded-3xl text-lg font-semibold transition-all">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Shop by Category</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-gray-100 rounded-3xl p-8 text-center hover:bg-green-50 transition-colors cursor-pointer">
+          <div class="text-6xl mb-4">🥬</div>
+          <h3 class="font-semibold text-xl">Fresh Vegetables</h3>
+        </div>
+        <div class="bg-gray-100 rounded-3xl p-8 text-center hover:bg-green-50 transition-colors cursor-pointer">
+          <div class="text-6xl mb-4">🍎</div>
+          <h3 class="font-semibold text-xl">Fruits</h3>
+        </div>
+        <div class="bg-gray-100 rounded-3xl p-8 text-center hover:bg-green-50 transition-colors cursor-pointer">
+          <div class="text-6xl mb-4">🥛</div>
+          <h3 class="font-semibold text-xl">Dairy & Eggs</h3>
+        </div>
+        <div class="bg-gray-100 rounded-3xl p-8 text-center hover:bg-green-50 transition-colors cursor-pointer">
+          <div class="text-6xl mb-4">🍞</div>
+          <h3 class="font-semibold text-xl">Bakery</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section id="products" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-10">
+        <h2 class="text-4xl font-bold text-gray-800">Featured Products</h2>
+        <a href="#" class="text-green-600 font-medium hover:underline flex items-center gap-2">
+          View All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Product 1 -->
+        <div class="product-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-6xl">🥕</div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-lg">Fresh Carrots</h3>
+                <p class="text-green-600 font-medium">1kg • KSh 120</p>
+              </div>
+              <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-2xl">In Stock</span>
+            </div>
+            <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-2xl font-medium transition-colors">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-6xl">🥑</div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-lg">Avocado (Hass)</h3>
+                <p class="text-green-600 font-medium">4pcs • KSh 250</p>
+              </div>
+              <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-2xl">Best Seller</span>
+            </div>
+            <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-2xl font-medium transition-colors">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-6xl">🍅</div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-lg">Ripe Tomatoes</h3>
+                <p class="text-green-600 font-medium">1kg • KSh 80</p>
+              </div>
+              <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-2xl">In Stock</span>
+            </div>
+            <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-2xl font-medium transition-colors">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-6xl">🥚</div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-lg">Free Range Eggs</h3>
+                <p class="text-green-600 font-medium">Dozen • KSh 320</p>
+              </div>
+              <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-2xl">In Stock</span>
+            </div>
+            <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-2xl font-medium transition-colors">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-20 bg-green-700 text-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">About Milly's Groceries</h2>
+        <p class="text-lg leading-relaxed mb-6">
+          Founded in Nairobi, Milly's Groceries brings the freshest produce and quality groceries directly from farmers to your home. 
+          We believe in supporting local farmers and delivering only the best to our customers.
+        </p>
+        <div class="grid grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-4xl font-bold">500+</div>
+            <div class="text-sm opacity-80">Happy Customers</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold">50+</div>
+            <div class="text-sm opacity-80">Products</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold">24h</div>
+            <div class="text-sm opacity-80">Delivery</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md rounded-3xl p-10 text-center">
+        <i class="fa-solid fa-truck text-6xl mb-6"></i>
+        <h3 class="text-2xl font-semibold mb-3">Fast Delivery</h3>
+        <p class="text-lg">Order before 2 PM and get it delivered same day in Nairobi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 text-white mb-6">
+            <div class="w-10 h-10 bg-green-600 rounded-2xl flex items-center justify-center text-3xl">🛒</div>
+            <h3 class="text-2xl font-bold">Milly's Groceries</h3>
+          </div>
+          <p class="text-sm">Fresh. Affordable. Delivered with love.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Shop All</a></li>
+            <li><a href="#" class="hover:text-white">Weekly Offers</a></li>
+            <li><a href="#" class="hover:text-white">Track Order</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-phone"></i> +254 705648689</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> hello@millysgroceries.co.ke</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-white mb-4">Follow Us</h4>
+          <div class="flex gap-4 text-2xl">
+            <a href="#" class="hover:text-white">📘</a>
+            <a href="#" class="hover:text-white">📷</a>
+            <a href="#" class="hover:text-white">𝕏</a>
+          </div>
+          <p class="text-xs mt-8">© 2026 Milly's Groceries. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tailwind script already loaded
+    console.log('%c Milly\'s Groceries website loaded successfully!', 'color: #16a34a; font-weight: bold');
+  </script>
+</body>
+</html>
